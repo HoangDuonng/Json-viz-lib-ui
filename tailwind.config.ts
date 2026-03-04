@@ -31,6 +31,8 @@ const config: Config = {
         'destructive-foreground': '#ffffff',
         popover: '#F6F5ED',
         'popover-foreground': '#171717',
+        'header-bg': '#D9D6C7',
+        'header-cta': '#38A3CC',
       },
       borderRadius: {
         lg: '0.75rem',
