@@ -1,8 +1,23 @@
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { TerminalSection } from '@/components/sections/TerminalSection';
+import { ExploreSection } from '@/components/sections/ExploreSection';
+import { NewsSection } from '@/components/sections/NewsSection';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
+
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8">
-      <h1 className="text-3xl font-bold text-primary">Json Viz Lib UI</h1>
-      <p className="mt-2 text-muted-foreground">Next.js 15 + App Router + TypeScript</p>
-    </main>
+    <div className="grid-background min-h-screen">
+      <Header />
+      <main>
+        <HeroSection />
+        <TerminalSection />
+        <ExploreSection />
+        <NewsSection />
+        <TestimonialsSection />
+      </main>
+      <Footer />
+    </div>
   );
 }
