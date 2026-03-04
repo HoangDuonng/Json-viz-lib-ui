@@ -3,7 +3,26 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: #F6F5ED;
+    --foreground: #171717;
+    --muted: #E8E6DD;
+    --muted-foreground: #525252;
+    --primary: #0a0a0a;
+    --primary-foreground: #ffffff;
+    --accent: #5b9cf5;
+    --accent-foreground: #ffffff;
+    --border: #d4d2c9;
+    --ring: #d4d2c9;
+    --input: #d4d2c9;
+  }
+
   body {
-    @apply antialiased text-foreground bg-background;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  * {
+    @apply border-border;
   }
 }
