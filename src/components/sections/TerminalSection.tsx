@@ -41,7 +41,7 @@ export function TerminalSection() {
   const [activeTab, setActiveTab] = useState<'mac' | 'windows'>('mac');
 
   return (
-    <section className="section-divider px-6 py-section lg:px-8">
+    <section className="section-divider px-4 py-section">
       <div className="mx-auto max-w-content">
         <div className="grid gap-12 lg:grid-cols-[300px_1fr]">
           {/* Left: Label */}

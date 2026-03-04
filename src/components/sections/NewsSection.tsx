@@ -48,7 +48,7 @@ const newsItems: NewsItem[] = [
 
 export function NewsSection() {
   return (
-    <section className="section-divider px-6 py-section lg:px-8">
+    <section className="section-divider px-4 py-section">
       <div className="mx-auto max-w-content">
         {/* Section header */}
         <div className="accent-bar mb-12">

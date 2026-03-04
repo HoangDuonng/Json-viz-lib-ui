@@ -3,7 +3,7 @@ import { BRAND_NAME } from '@/config/constants';
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden px-6 pb-24 pt-20 lg:px-8">
+    <section className="relative overflow-hidden px-4 pb-24 pt-20">
       {/* Wave pattern background */}
       <div className="hero-wave-pattern" />
 

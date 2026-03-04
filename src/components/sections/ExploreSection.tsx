@@ -90,7 +90,7 @@ export function ExploreSection() {
   };
 
   return (
-    <section className="section-divider px-6 py-section lg:px-8">
+    <section className="section-divider px-4 py-section">
       <div className="mx-auto max-w-content">
         {/* Header */}
         <div className="mb-10 grid gap-8 lg:grid-cols-[300px_1fr]">

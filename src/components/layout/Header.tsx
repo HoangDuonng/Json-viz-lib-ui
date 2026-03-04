@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { headerNavItems } from '@/config/navigation';
-import { BRAND_NAME } from '@/config/constants';
 
 function LogoMark() {
   return (
@@ -30,9 +29,9 @@ function LogoMark() {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-header-bg/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-content items-center justify-between px-6 lg:px-8">
-        {/* Logo */}
+    <header className="sticky top-0 z-50 w-full">
+      <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4">
+        {/* Logo - left */}
         <Link
           href="/"
           className="flex w-fit items-center gap-2 transition-opacity hover:opacity-80"
@@ -40,8 +39,8 @@ export function Header() {
           <LogoMark />
         </Link>
 
-        {/* Center Nav */}
-        <nav className="hidden items-center gap-7 md:flex">
+        {/* Nav + CTA - right */}
+        <div className="hidden items-center gap-7 md:flex">
           {headerNavItems.map((item) => (
             <Link
               key={item.href}
@@ -51,10 +50,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-        </nav>
-
-        {/* CTA */}
-        <div className="flex items-center">
           <Link
             href="/auth/sign-up"
             className="rounded-full bg-accent px-5 py-2 text-body-sm font-medium text-white transition-all hover:bg-accent/90 hover:shadow-lg"

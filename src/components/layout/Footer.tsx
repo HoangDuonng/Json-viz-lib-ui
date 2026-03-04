@@ -38,7 +38,7 @@ function FooterLogo() {
 export function Footer() {
   return (
     <footer className="bg-footer-bg text-footer-fg">
-      <div className="mx-auto max-w-content px-6 py-16 lg:px-8">
+      <div className="mx-auto max-w-content px-4 py-16">
         {/* Top: Logo + Link columns */}
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
           {/* Left: Logo + Status */}

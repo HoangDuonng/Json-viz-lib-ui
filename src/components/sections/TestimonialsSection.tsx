@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsSection() {
   return (
-    <section className="section-divider px-6 py-section lg:px-8">
+    <section className="section-divider px-4 py-section">
       <div className="mx-auto max-w-content">
         <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
           {testimonials.map((testimonial, i) => (

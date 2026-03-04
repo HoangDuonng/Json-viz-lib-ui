@@ -67,7 +67,7 @@ const config: Config = {
         DEFAULT: '200ms',
       },
       maxWidth: {
-        content: '1200px',
+        content: '1440px',
       },
     },
   },
