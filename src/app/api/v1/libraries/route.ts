@@ -160,7 +160,7 @@ const toLibraryFeedItem = async (
     fileName: entry.name,
     rawUrl,
     sourceUrl: entry.html_url,
-    installUrl: `${publicEnv.jsonvizAppUrl}/?addLibrary=${encodeURIComponent(rawUrl)}`,
+    installUrl: `${publicEnv.jsonvizDrawUrl}?addLibrary=${encodeURIComponent(rawUrl)}`,
     itemCount,
     itemNames,
   };

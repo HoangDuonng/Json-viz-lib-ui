@@ -33,7 +33,7 @@ export function LibrariesExplorer() {
   const search = useDebounce(searchInput.trim(), 250);
 
   const installTarget = searchParams.get('target') || '_blank';
-  const installReferrer = searchParams.get('referrer') || `${publicEnv.jsonvizAppUrl}/`;
+  const installReferrer = searchParams.get('referrer') || publicEnv.jsonvizDrawUrl;
   const useHashInstall = searchParams.get('useHash') === 'true';
   const installToken = searchParams.get('token');
 
@@ -118,7 +118,7 @@ export function LibrariesExplorer() {
                 className="w-full rounded-md border border-border-solid bg-transparent px-4 py-2 text-body-sm outline-none transition-shadow focus:shadow-[0_0_0_2px_rgba(21,136,178,0.2)]"
               />
               <Link
-                href={publicEnv.jsonvizAppUrl}
+                href={publicEnv.jsonvizDrawUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="whitespace-nowrap rounded-full bg-accent px-5 py-2 text-body-sm font-medium text-white transition-all hover:bg-accent/90"
