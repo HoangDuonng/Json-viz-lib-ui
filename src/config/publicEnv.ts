@@ -10,6 +10,13 @@ const readEnv = (...keys: string[]) => {
 
 const normalizeUrl = (value: string) => value.replace(/\/+$/, '');
 
+const jsonvizAppUrl = normalizeUrl(
+  readEnv('NEXT_PUBLIC_JSONVIZ_APP_URL') || 'https://jsonviz.online'
+);
+const jsonvizDrawUrl = normalizeUrl(
+  readEnv('NEXT_PUBLIC_JSONVIZ_DRAW_URL') || `${jsonvizAppUrl}/draw`
+);
+
 export const publicEnv = {
   apiBaseUrl: readEnv('NEXT_PUBLIC_API_URL') || '/api/v1',
   librarySiteUrl: normalizeUrl(
@@ -26,5 +33,6 @@ export const publicEnv = {
       'VITE_APP_LIBRARY_BACKEND'
     )
   ),
-  jsonvizAppUrl: normalizeUrl(readEnv('NEXT_PUBLIC_JSONVIZ_APP_URL') || 'https://jsonviz.online'),
+  jsonvizAppUrl,
+  jsonvizDrawUrl,
 } as const;

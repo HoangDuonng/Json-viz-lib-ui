@@ -55,6 +55,8 @@ This UI now maps JsonDraw library submissions to the app via:
 - `POST /api/v1/libraries/submit`: Proxies submit requests to the Cloudflare Worker backend (`/submit`).
 
 Main env variables are in `.env.example` and aligned with Json-viz's library vars.
+For install flow to open JsonDraw directly, set `NEXT_PUBLIC_JSONVIZ_DRAW_URL` (for example:
+`https://jsonviz.online/draw`).
 
 ## Docker
 
