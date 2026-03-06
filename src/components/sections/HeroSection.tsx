@@ -11,9 +11,9 @@ export function HeroSection() {
         {/* Left accent bar + Heading */}
         <div className="accent-bar mb-12">
           <h1 className="font-serif-display text-display-xl font-bold tracking-tight md:text-display-xl">
-            <span className="block italic">Engineered</span>
-            <span className="block">For The</span>
-            <span className="block">Frontier</span>
+            <span className="block italic">Curated</span>
+            <span className="block">Libraries</span>
+            <span className="block">For JsonViz</span>
           </h1>
         </div>
 
@@ -21,17 +21,17 @@ export function HeroSection() {
         <div className="flex flex-col items-start gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-lg">
             <p className="mb-3 text-body-lg text-foreground">
-              {BRAND_NAME} is the frontier coding agent that lets
+              {BRAND_NAME} Libraries is a community hub of reusable
               <br />
-              you wield the full power of leading models.
+              templates, visual blocks, and starter packs.
             </p>
             <p className="text-body-md text-muted-foreground">
-              Pay as you go, with no markup for individuals.
+              Built to plug directly into the main experience at jsonviz.online.
             </p>
           </div>
 
-          <Link href="/auth/sign-up" className="cta-button">
-            Get Started for Free
+          <Link href="/libraries" className="cta-button">
+            Explore Libraries
             <span className="ml-1">→</span>
           </Link>
         </div>

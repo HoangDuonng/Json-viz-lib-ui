@@ -3,38 +3,26 @@
 import { useState } from 'react';
 
 const terminalLines = [
-  { num: '186', type: 'removed', content: '  const effectiveGlow = boostedGlow * distanceFalloff' },
-  {
-    num: '220',
-    type: 'added',
-    content: '            shockwaveBoost = Math.max(shockwaveBoost, waveIntensity * 0.6)',
-  },
-  { num: '221', type: 'added', content: '          }' },
-  { num: '222', type: 'added', content: '        }' },
-  { num: '223', type: 'added', content: '' },
-  { num: '224', type: 'normal', content: '          const boostedGlow = Math.pow(glowValue, 0.7)' },
-  {
-    num: '225',
-    type: 'added',
-    content: '  const effectiveGlow = Math.min(1, boostedGlow * distanceFalloff +',
-  },
-  { num: '', type: 'continued', content: '    shockwaveBoost)' },
-  { num: '226', type: 'normal', content: '' },
-  {
-    num: '227',
-    type: 'normal',
-    content: '          const color = this.blendWithGlow(this._baseColor, effectiveGlow,',
-  },
-  { num: '', type: 'continued', content: '    primary, secondary)' },
-  { num: '228', type: 'normal', content: '' },
-  { num: '229', type: 'normal', content: '          screen.setCell(x, absoluteY, {' },
-  { num: '230', type: 'normal', content: '' },
+  { num: '12', type: 'normal', content: '  "id": "retail-kpi-pack",' },
+  { num: '13', type: 'normal', content: '  "name": "Retail KPI Dashboard Pack",' },
+  { num: '14', type: 'normal', content: '  "author": "jsonviz-team",' },
+  { num: '15', type: 'added', content: '  "category": "dashboards",' },
+  { num: '16', type: 'added', content: '  "license": "MIT",' },
+  { num: '17', type: 'normal', content: '  "version": "1.3.0",' },
+  { num: '18', type: 'normal', content: '  "tags": ["sales", "kpi", "retail"],' },
+  { num: '19', type: 'added', content: '  "preview": "https://jsonviz.online/libraries/retail-kpi-pack",' },
+  { num: '20', type: 'normal', content: '  "items": [' },
+  { num: '21', type: 'normal', content: '    "charts/sales-funnel.json",' },
+  { num: '22', type: 'normal', content: '    "layouts/executive-summary.json",' },
+  { num: '23', type: 'normal', content: '    "themes/ocean-contrast.json"' },
+  { num: '24', type: 'normal', content: '  ]' },
+  { num: '25', type: 'normal', content: '}' },
 ];
 
 const messageLines = [
-  { type: 'text', content: "Now let's update " },
-  { type: 'highlight', content: 'SplashScreen' },
-  { type: 'text', content: ' to manage shockwaves and pass them to both widgets:' },
+  { type: 'text', content: "Ready to publish " },
+  { type: 'highlight', content: 'Retail KPI Dashboard Pack' },
+  { type: 'text', content: ' to JsonViz Libraries.' },
 ];
 
 export function TerminalSection() {
@@ -47,12 +35,12 @@ export function TerminalSection() {
           {/* Left: Label */}
           <div className="accent-bar">
             <p className="font-code text-caption uppercase tracking-widest text-muted-foreground">
-              Install
+              Manifest
             </p>
             <h2 className="font-serif-display mt-3 text-display-sm font-bold">
-              Available in
+              Portable
               <br />
-              the terminal
+              library format
             </h2>
           </div>
 
@@ -106,29 +94,29 @@ export function TerminalSection() {
                 {/* Edit link */}
                 <div className="mt-3 text-accent">
                   <span className="mr-2 text-muted-foreground">✏</span>
-                  Edit /Users/dev/work/cli/src/tui/widgets/splash-screen.ts
+                  Edit /libraries/retail-kpi-pack/library.json
                 </div>
 
-                {/* Smart prompt */}
+                {/* Schema status */}
                 <div className="mt-6 rounded border border-olive-accent/30 bg-olive-accent/5 p-3">
-                  <div className="mb-1 text-olive-accent">
-                    <span className="line-through">smart</span>
+                  <div className="mb-1 text-olive-accent">Schema check: passed</div>
+                  <div className="text-muted-foreground/60">
+                    Valid against JsonViz Library Schema v1
                   </div>
-                  <div className="text-muted-foreground/60">Press Ctrl+C to exit</div>
                 </div>
 
                 {/* Status bar */}
                 <div className="mt-2 flex justify-end text-xs text-muted-foreground/40">
-                  <span>~/Users/dev/work/cli</span>
-                  <span className="ml-4">27% of 168k</span>
+                  <span>~/workspace/jsonviz-libraries</span>
+                  <span className="ml-4">3 templates • 1 theme • MIT</span>
                 </div>
               </div>
             </div>
 
-            {/* Install command */}
+            {/* Import command */}
             <div className="mt-8 flex flex-col items-end gap-4 sm:flex-row sm:items-center sm:justify-between">
               <span className="font-code text-caption uppercase tracking-widest text-muted-foreground">
-                Install
+                Import
               </span>
 
               <div className="flex items-center gap-4">
@@ -153,8 +141,8 @@ export function TerminalSection() {
               <div className="install-command">
                 <code>
                   {activeTab === 'mac'
-                    ? 'curl -fsSL https://jsonviz.dev/install.sh | bash'
-                    : 'iwr https://jsonviz.dev/install.ps1 | iex'}
+                    ? 'npx @jsonviz/library pull retail-kpi-pack --target ./public/libraries'
+                    : 'npx @jsonviz/library pull retail-kpi-pack --target .\\public\\libraries'}
                 </code>
                 <button
                   className="text-muted-foreground/60 transition-colors hover:text-terminal-fg"
@@ -184,22 +172,20 @@ export function TerminalSection() {
 }
 
 function highlightSyntax(text: string) {
-  const keywords = ['const', 'let', 'var', 'function', 'return', 'if', 'else', 'this'];
-  const parts = text.split(
-    /(\b(?:const|let|var|function|return|if|else|this)\b|Math\.\w+|\.\w+\()/g
-  );
+  const keywords = ['true', 'false', 'null'];
+  const parts = text.split(/("(?:[^"\\]|\\.)*"\s*:|\b(?:true|false|null)\b)/g);
 
   return parts.map((part, i) => {
-    if (keywords.includes(part)) {
+    if (/^"(?:[^"\\]|\\.)*"\s*:$/.test(part)) {
       return (
-        <span key={i} className="terminal-keyword">
+        <span key={i} className="terminal-function">
           {part}
         </span>
       );
     }
-    if (part.startsWith('Math.') || part.match(/^\.\w+\(/)) {
+    if (keywords.includes(part)) {
       return (
-        <span key={i} className="terminal-function">
+        <span key={i} className="terminal-keyword">
           {part}
         </span>
       );

@@ -51,10 +51,10 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/auth/sign-up"
+            href="/libraries"
             className="rounded-full bg-accent px-5 py-2 text-body-sm font-medium text-white transition-all hover:bg-accent/90 hover:shadow-lg"
           >
-            Get Started
+            Browse Libraries
           </Link>
         </div>
       </div>

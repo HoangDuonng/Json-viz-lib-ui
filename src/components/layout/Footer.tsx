@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { footerProduct, footerResources, footerGuides, footerCommunity } from '@/config/navigation';
-import { BRAND_NAME } from '@/config/constants';
 
 const footerSections = [
   { title: 'Product', links: footerProduct },
@@ -48,19 +47,19 @@ export function Footer() {
             <div className="mt-auto flex flex-col gap-3 text-body-sm">
               <span className="flex items-center gap-2 text-footer-fg/60">
                 <span className="size-2 rounded-full bg-green-accent" />
-                All Systems Operational
+                Library Index Synced
               </span>
               <Link
-                href="/security"
+                href="/submission-guidelines"
                 className="text-footer-fg/60 transition-colors hover:text-footer-fg"
               >
-                Security
+                Submission Guidelines
               </Link>
               <Link
                 href="/terms"
                 className="text-footer-fg/60 transition-colors hover:text-footer-fg"
               >
-                Terms of Service
+                Terms of Use
               </Link>
             </div>
           </div>

@@ -1,9 +1,8 @@
 export const headerNavItems = [
-  { href: '/chronicle', label: 'Chronicle' },
-  { href: '/manual', label: "Owner's Manual" },
-  { href: '/models', label: 'Models' },
-  { href: '/free', label: 'JsonViz Free' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/libraries', label: 'Libraries' },
+  { href: '/collections', label: 'Collections' },
+  { href: '/docs/submitting', label: 'Submit a Library' },
+  { href: '/docs', label: 'Docs' },
   { href: '/sign-in', label: 'Sign In' },
 ];
 
@@ -14,27 +13,27 @@ export interface FooterLink {
 }
 
 export const footerProduct: FooterLink[] = [
-  { href: '/get-started', label: 'Get Started' },
+  { href: '/libraries', label: 'Browse Libraries' },
+  { href: '/collections', label: 'Featured Collections' },
+  { href: '/submit', label: 'Submit Library' },
   { href: '/sign-in', label: 'Sign In' },
-  { href: '/manual', label: "Owner's Manual" },
-  { href: '/models', label: 'Models' },
-  { href: '/free', label: 'JsonViz Free' },
+  { href: '/dashboard', label: 'Creator Dashboard' },
 ];
 
 export const footerResources: FooterLink[] = [
-  { href: '/chronicle', label: 'Chronicle' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/podcast', label: 'Podcast' },
-  { href: '/press-kit', label: 'Press Kit' },
+  { href: '/docs', label: 'Documentation' },
+  { href: '/docs/schema', label: 'Library Schema' },
+  { href: '/docs/licensing', label: 'Licensing' },
+  { href: '/changelog', label: 'Changelog' },
 ];
 
 export const footerGuides: FooterLink[] = [
-  { href: '/guides/agent', label: 'How to Build an Agent' },
-  { href: '/guides/context', label: 'Context Management' },
+  { href: '/guides/create-library', label: 'Create a Library' },
+  { href: '/guides/publish-library', label: 'Publish Workflow' },
 ];
 
 export const footerCommunity: FooterLink[] = [
-  { href: 'https://x.com/jsonviz', label: '𝕏 @jsonviz', external: true },
-  { href: '/insiders', label: 'JsonViz Insiders' },
-  { href: '/youtube', label: 'YouTube', external: true },
+  { href: 'https://jsonviz.online/', label: 'jsonviz.online', external: true },
+  { href: 'https://x.com/jsonviz', label: 'X @jsonviz', external: true },
+  { href: '/contributors', label: 'Top Contributors' },
 ];

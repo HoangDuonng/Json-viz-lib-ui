@@ -6,73 +6,73 @@ interface ExploreCard {
   title: string;
   author: string;
   avatar: string;
-  prompts: number;
-  files: number;
-  added: number;
-  removed: number;
+  items: number;
+  installs: string;
+  version: string;
+  updated: string;
   badges: string[];
 }
 
 const exploreCards: ExploreCard[] = [
   {
-    title: 'React server actions RCE reproduction case',
-    author: 'mitsuhiko',
+    title: 'SaaS Metrics Overview',
+    author: 'jsonviz-team',
     avatar: '🟠',
-    prompts: 4,
-    files: 31,
-    added: 1896,
-    removed: 97,
-    badges: ['Oracle'],
+    items: 14,
+    installs: '8.2k',
+    version: 'v2.1.0',
+    updated: 'Updated Mar 2026',
+    badges: ['Dashboard', 'Verified'],
   },
   {
-    title: 'Lua TUI framework design and widget sizing',
-    author: 'rockorager',
+    title: 'Funnel + Cohort Growth Kit',
+    author: 'growth-lab',
     avatar: '🔵',
-    prompts: 29,
-    files: 51,
-    added: 543,
-    removed: 425,
-    badges: ['Oracle'],
+    items: 9,
+    installs: '5.4k',
+    version: 'v1.8.3',
+    updated: 'Updated Feb 2026',
+    badges: ['Growth', 'Team Pick'],
   },
   {
-    title: 'Cool effect build review and files changed',
-    author: 'mrnugget',
+    title: 'E-commerce Revenue Board',
+    author: 'retail-stack',
     avatar: '🟢',
-    prompts: 3,
-    files: 12,
-    added: 890,
-    removed: 234,
-    badges: ['Oracle', 'Librarian'],
+    items: 12,
+    installs: '4.1k',
+    version: 'v3.0.2',
+    updated: 'Updated Mar 2026',
+    badges: ['Retail', 'Verified'],
   },
   {
-    title: 'Migrate Vegeta plot from Dygraphs to uPlot',
-    author: 'developer',
+    title: 'Geo Density Story Maps',
+    author: 'vizmaker',
     avatar: '🟣',
-    prompts: 15,
-    files: 8,
-    added: 1200,
-    removed: 800,
-    badges: ['Librarian'],
+    items: 7,
+    installs: '2.9k',
+    version: 'v1.2.4',
+    updated: 'Updated Jan 2026',
+    badges: ['Maps', 'Experimental'],
   },
   {
-    title: 'Implement eval collection and filtering mechanism',
-    author: 'engineer',
+    title: 'Investor Update Deck Pack',
+    author: 'founder-tools',
     avatar: '🔴',
-    prompts: 22,
-    files: 16,
-    added: 670,
-    removed: 120,
-    badges: ['Librarian'],
+    items: 11,
+    installs: '3.3k',
+    version: 'v2.4.1',
+    updated: 'Updated Feb 2026',
+    badges: ['Presentation', 'Team Pick'],
   },
   {
-    title: 'Refactor video detail component architecture',
-    author: 'coder',
+    title: 'Operations Command Center',
+    author: 'ops-lab',
     avatar: '⚪',
-    prompts: 8,
-    files: 5,
-    added: 340,
-    removed: 180,
-    badges: ['Oracle'],
+    items: 10,
+    installs: '1.7k',
+    version: 'v1.0.9',
+    updated: 'Updated Dec 2025',
+    badges: ['Operations', 'Verified'],
   },
 ];
 
@@ -97,19 +97,19 @@ export function ExploreSection() {
           {/* Left label */}
           <div className="accent-bar">
             <p className="font-code text-caption uppercase tracking-widest text-muted-foreground">
-              Social
+              Library Feed
             </p>
             <h2 className="font-serif-display mt-3 text-display-sm font-bold">
               <span className="italic">Explore</span>
               <br />
-              <span className="italic">With</span> Us
+              <span className="italic">Community</span> Packs
             </h2>
           </div>
 
           {/* Right: subtitle + arrows */}
           <div className="flex items-end justify-between">
             <p className="font-serif-display text-heading-lg">
-              See how people are building with JsonViz
+              Discover what creators publish for jsonviz.online
             </p>
             <div className="flex gap-2">
               <button className="nav-arrow" onClick={() => scroll('left')} aria-label="Previous">
@@ -154,14 +154,14 @@ export function ExploreSection() {
                 {/* Bottom: Stats */}
                 <div className="mt-auto flex items-center justify-between pt-8">
                   <div className="flex flex-col gap-1">
+                    <span className="stat-badge text-muted-foreground">📦 {card.items} items</span>
                     <span className="stat-badge text-muted-foreground">
-                      💬 {card.prompts} prompts
+                      ⬇ {card.installs} installs
                     </span>
-                    <span className="stat-badge text-muted-foreground">📁 {card.files} files</span>
                   </div>
                   <div className="flex flex-col items-end gap-1">
-                    <span className="stat-badge stat-positive">+{card.added}</span>
-                    <span className="stat-badge stat-negative">-{card.removed}</span>
+                    <span className="stat-badge stat-positive">{card.version}</span>
+                    <span className="stat-badge text-muted-foreground">{card.updated}</span>
                   </div>
                 </div>
               </div>

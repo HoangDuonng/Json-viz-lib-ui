@@ -3,9 +3,9 @@ import '@/styles/globals.css';
 import { AppProviders } from '@/providers/AppProviders';
 
 export const metadata: Metadata = {
-  title: 'JsonViz — Engineered For The Frontier',
+  title: 'JsonViz Libraries — Reusable Visual Packs',
   description:
-    'JsonViz is the frontier coding agent that lets you wield the full power of leading models. Pay as you go, with no markup for individuals.',
+    'JsonViz Libraries is a curated hub of reusable templates, components, and data-visual packs built for jsonviz.online.',
 };
 
 export default function RootLayout({
