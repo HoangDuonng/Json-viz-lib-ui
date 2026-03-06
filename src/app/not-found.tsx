@@ -1,8 +1,9 @@
+import { NotFoundCard } from '@/components/NotFoundCard';
+
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold">404</h1>
-      <p>Trang không tồn tại.</p>
+    <div className="flex min-h-[calc(100vh-7rem)] items-center justify-center p-6">
+      <NotFoundCard />
     </div>
   );
 }

@@ -3,8 +3,9 @@ import '@/styles/globals.css';
 import { AppProviders } from '@/providers/AppProviders';
 
 export const metadata: Metadata = {
-  title: 'Json Viz Lib UI',
-  description: 'Next.js 15 app with battle-tested structure',
+  title: 'JsonViz Libraries — Reusable Visual Packs',
+  description:
+    'JsonViz Libraries is a curated hub of reusable templates, components, and data-visual packs built for jsonviz.online.',
 };
 
 export default function RootLayout({
@@ -13,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
-      <body>
+    <html lang="en">
+      <body className="flex min-h-screen flex-col antialiased">
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

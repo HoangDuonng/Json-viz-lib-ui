@@ -38,14 +38,23 @@ See [STRUCTURE.md](./STRUCTURE.md) for full details.
 
 ## Scripts
 
-| Script       | Description                 |
-|-------------|-----------------------------|
-| `yarn dev`  | Dev server (Turbopack)      |
-| `yarn build`| Build production bundle     |
-| `yarn start`| Run built app in production |
-| `yarn lint` | Run ESLint                  |
-| `yarn format` | Format code (Prettier)    |
-| `yarn test` | Run Jest tests              |
+| Script        | Description                 |
+| ------------- | --------------------------- |
+| `yarn dev`    | Dev server (Turbopack)      |
+| `yarn build`  | Build production bundle     |
+| `yarn start`  | Run built app in production |
+| `yarn lint`   | Run ESLint                  |
+| `yarn format` | Format code (Prettier)      |
+| `yarn test`   | Run Jest tests              |
+
+## Libraries API mapping
+
+This UI now maps JsonDraw library submissions to the app via:
+
+- `GET /api/v1/libraries`: Reads submitted `.jsondrawlib` files from `json-viz-libraries` on GitHub.
+- `POST /api/v1/libraries/submit`: Proxies submit requests to the Cloudflare Worker backend (`/submit`).
+
+Main env variables are in `.env.example` and aligned with Json-viz's library vars.
 
 ## Docker
 
