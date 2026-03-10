@@ -9,13 +9,25 @@ const readEnv = (...keys: string[]) => {
 };
 
 const normalizeUrl = (value: string) => value.replace(/\/+$/, '');
+const normalizeDrawUrl = (value: string, fallbackAppUrl: string) => {
+  const fallbackDrawUrl = `${normalizeUrl(fallbackAppUrl)}/draw`;
+  const candidate = normalizeUrl(value || fallbackDrawUrl);
+
+  try {
+    const url = new URL(candidate);
+    if (url.pathname === '/' || !url.pathname) {
+      url.pathname = '/draw';
+    }
+    return normalizeUrl(url.toString());
+  } catch {
+    return normalizeUrl(fallbackDrawUrl);
+  }
+};
 
 const jsonvizAppUrl = normalizeUrl(
   readEnv('NEXT_PUBLIC_JSONVIZ_APP_URL') || 'https://jsonviz.online'
 );
-const jsonvizDrawUrl = normalizeUrl(
-  readEnv('NEXT_PUBLIC_JSONVIZ_DRAW_URL') || `${jsonvizAppUrl}/draw`
-);
+const jsonvizDrawUrl = normalizeDrawUrl(readEnv('NEXT_PUBLIC_JSONVIZ_DRAW_URL'), jsonvizAppUrl);
 
 export const publicEnv = {
   apiBaseUrl: readEnv('NEXT_PUBLIC_API_URL') || '/api/v1',

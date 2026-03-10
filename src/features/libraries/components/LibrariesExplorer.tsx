@@ -8,6 +8,17 @@ import { useDebounce } from '@/hooks/useDebounce';
 import { useLibraries } from '../hooks/useLibraries';
 
 const PAGE_SIZE = 12;
+const ensureDrawReferrer = (value: string) => {
+  try {
+    const url = new URL(value);
+    if (url.pathname === '/' || !url.pathname) {
+      url.pathname = '/draw';
+    }
+    return url.toString();
+  } catch {
+    return publicEnv.jsonvizDrawUrl;
+  }
+};
 
 const formatDate = (value: string | null) => {
   if (!value) {
@@ -33,7 +44,9 @@ export function LibrariesExplorer() {
   const search = useDebounce(searchInput.trim(), 250);
 
   const installTarget = searchParams.get('target') || '_blank';
-  const installReferrer = searchParams.get('referrer') || publicEnv.jsonvizDrawUrl;
+  const installReferrer = ensureDrawReferrer(
+    searchParams.get('referrer') || publicEnv.jsonvizDrawUrl
+  );
   const useHashInstall = searchParams.get('useHash') === 'true';
   const installToken = searchParams.get('token');
 
