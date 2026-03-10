@@ -38,13 +38,6 @@ export const publicEnv = {
       'VITE_APP_LIBRARY_URL'
     ) || 'https://libraries.jsonviz.online'
   ),
-  libraryBackendUrl: normalizeUrl(
-    readEnv(
-      'NEXT_PUBLIC_LIBRARY_BACKEND_URL',
-      'NEXT_PUBLIC_VITE_APP_LIBRARY_BACKEND',
-      'VITE_APP_LIBRARY_BACKEND'
-    )
-  ),
   jsonvizAppUrl,
   jsonvizDrawUrl,
 } as const;
