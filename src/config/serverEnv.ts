@@ -18,12 +18,5 @@ export const serverEnv = {
   githubRepo: readServerEnv('LIBRARY_GITHUB_REPO') || 'json-viz-libraries',
   githubLibrariesPath: readServerEnv('LIBRARY_GITHUB_PATH') || 'libraries',
   githubRef: readServerEnv('LIBRARY_GITHUB_REF') || 'main',
-  libraryBackendUrl: normalizeUrl(
-    readServerEnv(
-      'LIBRARY_BACKEND_URL',
-      'VITE_APP_LIBRARY_BACKEND',
-      'NEXT_PUBLIC_LIBRARY_BACKEND_URL',
-      'NEXT_PUBLIC_VITE_APP_LIBRARY_BACKEND'
-    )
-  ),
+  libraryBackendUrl: normalizeUrl(readServerEnv('LIBRARY_BACKEND_URL')),
 } as const;

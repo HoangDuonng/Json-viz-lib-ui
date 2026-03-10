@@ -1,27 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { publicEnv } from '@/config/publicEnv';
 import { serverEnv } from '@/config/serverEnv';
 
 const normalizeUrl = (value: string) => value.replace(/\/+$/, '');
 
-const resolveLibraryBackendUrl = () => {
-  const serverValue = normalizeUrl(serverEnv.libraryBackendUrl || '');
-  if (serverValue) {
-    return serverValue;
-  }
-
-  const publicValue = normalizeUrl(publicEnv.libraryBackendUrl || '');
-  return publicValue;
-};
-
 export async function POST(request: NextRequest) {
-  const backendBaseUrl = resolveLibraryBackendUrl();
+  const backendBaseUrl = normalizeUrl(serverEnv.libraryBackendUrl || '');
 
   if (!backendBaseUrl) {
     return NextResponse.json(
       {
-        message:
-          'Library backend is not configured. Set LIBRARY_BACKEND_URL or NEXT_PUBLIC_LIBRARY_BACKEND_URL.',
+        message: 'Library backend is not configured. Set LIBRARY_BACKEND_URL.',
       },
       { status: 500 }
     );
