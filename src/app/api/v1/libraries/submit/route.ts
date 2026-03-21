@@ -3,6 +3,16 @@ import { serverEnv } from '@/config/serverEnv';
 
 const normalizeUrl = (value: string) => value.replace(/\/+$/, '');
 
+const CORS_HEADERS: HeadersInit = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+export async function OPTIONS() {
+  return new Response(null, { status: 204, headers: CORS_HEADERS });
+}
+
 export async function POST(request: NextRequest) {
   const backendBaseUrl = normalizeUrl(serverEnv.libraryBackendUrl || '');
 
@@ -11,7 +21,7 @@ export async function POST(request: NextRequest) {
       {
         message: 'Library backend is not configured. Set LIBRARY_BACKEND_URL.',
       },
-      { status: 500 }
+      { status: 500, headers: CORS_HEADERS }
     );
   }
 
@@ -29,10 +39,11 @@ export async function POST(request: NextRequest) {
       status: upstreamResponse.status,
       headers: {
         'Content-Type': contentType,
+        ...CORS_HEADERS,
       },
     });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown error';
-    return NextResponse.json({ message }, { status: 500 });
+    return NextResponse.json({ message }, { status: 500, headers: CORS_HEADERS });
   }
 }
