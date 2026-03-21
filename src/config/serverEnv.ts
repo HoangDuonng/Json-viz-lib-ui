@@ -13,10 +13,10 @@ const readServerEnv = (...keys: string[]) => {
 const normalizeUrl = (value: string) => value.replace(/\/+$/, '');
 
 export const serverEnv = {
-  githubToken: readServerEnv('GITHUB_TOKEN'),
-  githubOwner: readServerEnv('LIBRARY_GITHUB_OWNER') || 'HoangDuonng',
-  githubRepo: readServerEnv('LIBRARY_GITHUB_REPO') || 'json-viz-libraries',
-  githubLibrariesPath: readServerEnv('LIBRARY_GITHUB_PATH') || 'libraries',
-  githubRef: readServerEnv('LIBRARY_GITHUB_REF') || 'main',
+  sourceToken: readServerEnv('LIBRARY_SOURCE_TOKEN'),
+  sourceOwner: readServerEnv('LIBRARY_SOURCE_OWNER'),
+  sourceRepo: readServerEnv('LIBRARY_SOURCE_REPO'),
+  sourcePath: readServerEnv('LIBRARY_SOURCE_PATH'),
+  sourceRef: readServerEnv('LIBRARY_SOURCE_REF') || 'main',
   libraryBackendUrl: normalizeUrl(readServerEnv('LIBRARY_BACKEND_URL')),
 } as const;

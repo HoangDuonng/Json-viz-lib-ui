@@ -72,8 +72,8 @@ const buildGithubHeaders = () => {
     'User-Agent': 'json-viz-lib-ui',
   };
 
-  if (serverEnv.githubToken) {
-    headers.Authorization = `Bearer ${serverEnv.githubToken}`;
+  if (serverEnv.sourceToken) {
+    headers.Authorization = `Bearer ${serverEnv.sourceToken}`;
   }
 
   return headers;
@@ -98,16 +98,16 @@ const readJson = async <T>(url: string, init?: RequestInit): Promise<T> => {
 
 const toRawUrl = (entry: GithubContentEntry) =>
   entry.download_url ||
-  `https://raw.githubusercontent.com/${serverEnv.githubOwner}/${serverEnv.githubRepo}/${serverEnv.githubRef}/${entry.path}`;
+  `https://raw.githubusercontent.com/${serverEnv.sourceOwner}/${serverEnv.sourceRepo}/${serverEnv.sourceRef}/${entry.path}`;
 
 const toLibraryFeedItem = async (
   entry: GithubContentEntry,
   githubHeaders: HeadersInit
 ): Promise<LibraryFeedItem> => {
-  const commitUrl = `${GITHUB_API_BASE_URL}/repos/${serverEnv.githubOwner}/${
-    serverEnv.githubRepo
+  const commitUrl = `${GITHUB_API_BASE_URL}/repos/${serverEnv.sourceOwner}/${
+    serverEnv.sourceRepo
   }/commits?path=${encodeURIComponent(entry.path)}&sha=${encodeURIComponent(
-    serverEnv.githubRef
+    serverEnv.sourceRef
   )}&per_page=1`;
 
   let latestCommit: GithubCommitEntry | null = null;
@@ -173,10 +173,10 @@ export async function GET(request: NextRequest) {
   const search = (query.get('search') || '').trim().toLowerCase();
 
   const headers = buildGithubHeaders();
-  const contentPath = encodePath(serverEnv.githubLibrariesPath);
-  const listUrl = `${GITHUB_API_BASE_URL}/repos/${serverEnv.githubOwner}/${
-    serverEnv.githubRepo
-  }/contents/${contentPath}?ref=${encodeURIComponent(serverEnv.githubRef)}`;
+  const contentPath = encodePath(serverEnv.sourcePath);
+  const listUrl = `${GITHUB_API_BASE_URL}/repos/${serverEnv.sourceOwner}/${
+    serverEnv.sourceRepo
+  }/contents/${contentPath}?ref=${encodeURIComponent(serverEnv.sourceRef)}`;
 
   try {
     const entries = await readJson<GithubContentEntry[]>(listUrl, {
@@ -216,10 +216,10 @@ export async function GET(request: NextRequest) {
       page,
       pageSize,
       source: {
-        owner: serverEnv.githubOwner,
-        repo: serverEnv.githubRepo,
-        path: serverEnv.githubLibrariesPath,
-        ref: serverEnv.githubRef,
+        owner: serverEnv.sourceOwner,
+        repo: serverEnv.sourceRepo,
+        path: serverEnv.sourcePath,
+        ref: serverEnv.sourceRef,
       },
     });
   } catch (error: unknown) {
