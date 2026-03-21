@@ -9,6 +9,14 @@
     "enabled": true,
   },
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "vars": {
+    "LIBRARY_SOURCE_OWNER": "HoangDuonng",
+    "LIBRARY_SOURCE_REPO": "json-viz-libraries",
+    "LIBRARY_SOURCE_PATH": "libraries",
+    "NEXT_PUBLIC_JSONVIZ_APP_URL": "https://jsonviz.online",
+    "NEXT_PUBLIC_JSONVIZ_DRAW_URL": "https://jsonviz.online/draw",
+    "NEXT_PUBLIC_LIBRARY_SITE_URL": "https://libraries.jsonviz.online",
+  },
   "routes": [
     {
       "pattern": "libraries.jsonviz.online",
